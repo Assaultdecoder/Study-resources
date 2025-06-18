@@ -3,64 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Study Resources</title>
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; }
-    .navbar {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 20px; background-color: #f8f8f8;
-      border-bottom: 1px solid #ddd;
-    }
-    .navbar .logo { font-size: 22px; font-weight: bold; color: #333; }
-    .navbar .icons { display: flex; align-items: center; gap: 15px; }
-    .menu { display: none; flex-direction: column; background-color: #fff; position: absolute; top: 60px; right: 10px; border: 1px solid #ddd; border-radius: 5px; overflow: hidden; }
-    .menu a { padding: 10px 20px; text-decoration: none; color: #333; border-bottom: 1px solid #eee; }
-    .menu a:hover { background-color: #f0f0f0; }
-    .hamburger { font-size: 20px; cursor: pointer; }
-    table { width: 90%; margin: 30px auto; border-collapse: collapse; }
-    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-    th { background-color: #f0f0f0; }
-  </style>
+  <title>Assault Decoder</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="navbar">
-    <div class="logo">Study Resources</div>
-    <div class="icons">
-      <span class="search">&#128269;</span>
-      <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+  <header>
+    <div class="logo-container">
+      <img src="assault_decoder_logo_circle.png" alt="Logo" class="logo" />
+      <span class="title">Assault Decoder</span>
     </div>
-  </div>
-  <div class="menu" id="menu">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-    <a href="#">Download</a>
+    <div class="nav-actions">
+      <button id="searchBtn">🔍</button>
+      <button id="menuBtn">☰</button>
+    </div>
+  </header>
+
+  <!-- Search Bar -->
+  <div id="searchBox" class="search-box">
+    <input type="text" id="searchInput" placeholder="Search..." />
+    <button onclick="performSearch()">Go</button>
   </div>
 
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Link</th>
-    </tr>
-    <tr>
-      <td>NEET</td>
-      <td><a href="https://t.me/+9Mw4cEYK4M8wNjA1" target="_blank">Join</a></td>
-    </tr>
-    <tr>
-      <td>JEE</td>
-      <td><a href="https://t.me/+9Mw4cEYK4M8wNjA1" target="_blank">Join</a></td>
-    </tr>
-    <tr>
-      <td>IIT</td>
-      <td><a href="https://t.me/+9Mw4cEYK4M8wNjA1" target="_blank">Join</a></td>
-    </tr>
-  </table>
+  <!-- Sidebar Menu -->
+  <div id="sideDrawer" class="drawer">
+    <button class="closeBtn" onclick="closeDrawer()">✕</button>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Download</a></li>
+    </ul>
+  </div>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    }
-  </script>
+  <!-- Main Content -->
+  <main>
+    <h2>Welcome to Assault Decoder</h2>
+    <p>This is your study resource hub.</p>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
