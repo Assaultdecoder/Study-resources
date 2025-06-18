@@ -1,16 +1,43 @@
-<h2>Free PDF Page</h2>
-<p>Coming Soon...</p>
-<header>
-  <h1><img src="file_000000007c1061f9826a7f9a92a9ab7e.png" alt="Logo"> Assault Decoder</h1>
-  <div class="icon-buttons">
-    <i onclick="toggleSearch()">🔍</i>
-    <i onclick="toggleDrawer()">☰</i>
-  </div>
-</header>
-
-<div id="drawer" class="drawer">
-  <a href="index.html">Home</a>
-  <a href="#">About</a>
-  <a href="#">Contact</a>
-  <a href="#">Download</a>
-</div>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free PDF - Assault Decoder</title>
+  <link rel="icon" href="file_000000007c1061f9826a7f9a92a9ab7e.png" type="image/png">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; z-index: 1001; }
+    header h1 { font-size: 20px; margin: 0; display: flex; align-items: center; }
+    header img { height: 40px; width: 40px; border-radius: 50%; margin-right: 10px; }
+    .icon-buttons { display: flex; gap: 15px; align-items: center; }
+    .icon-buttons i { font-size: 22px; cursor: pointer; }
+    .drawer { position: fixed; top: 0; left: -100%; width: 60%; height: 100%; background: white; box-shadow: 2px 0 5px rgba(0,0,0,0.2); transition: left 0.3s ease-in-out; padding: 20px; z-index: 1000; }
+    .drawer.open { left: 0; }
+    .drawer a { display: block; margin-bottom: 15px; color: #333; text-decoration: none; font-size: 18px; }
+    .content { height: calc(100vh - 60px); display: flex; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+    .coming-soon { font-size: 36px; font-weight: bold; color: #555; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><img src="file_000000007c1061f9826a7f9a92a9ab7e.png" alt="Logo"> Assault Decoder</h1>
+    <div class="icon-buttons">
+      <i onclick="toggleSearch()">🔍</i>
+      <i onclick="toggleDrawer()">☰</i>
+    </div>
+  </header>  <div id="drawer" class="drawer">
+    <a href="index.html">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Download</a>
+  </div>  <div class="content">
+    <div class="coming-soon">Coming Soon...</div>
+  </div>  <script>
+    function toggleDrawer() {
+      document.getElementById('drawer').classList.toggle('open');
+    }
+    function toggleSearch() {
+      alert("Search functionality coming soon.");
+    }
+  </script></body>
+</html>
