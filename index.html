@@ -2,45 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Assault Decoder</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-title img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .logo-title span {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .search-box {
+      display: none;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -60%;
+      width: 60%;
+      height: 100%;
+      background: white;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+      transition: left 0.3s ease;
+      z-index: 1001;
+      padding: 20px;
+    }
+    .sidebar.active {
+      left: 0;
+    }
+    .sidebar a {
+      display: block;
+      margin-bottom: 15px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo-container">
-      <img src="file_000000007c1061f9826a7f9a92a9ab7e.png" alt="Logo" class="logo" />
-      <span class="title">Assault Decoder</span>
+    <div class="logo-title">
+      <img src="file_000000007c1061f9826a7f9a92a9ab7e.png" alt="Logo">
+      <span>Assault Decoder</span>
     </div>
-    <div class="nav-actions">
-      <button id="searchBtn">🔍</button>
-      <button id="menuBtn">☰</button>
+    <div class="icons">
+      <i class="fas fa-search" onclick="toggleSearch()"></i>
+      <i class="fas fa-bars" onclick="toggleSidebar()"></i>
     </div>
   </header>
 
-  <!-- Search Bar -->
-  <div id="searchBox" class="search-box">
-    <input type="text" id="searchInput" placeholder="Search..." />
-    <button onclick="performSearch()">Go</button>
+  <div class="search-box" id="searchBox">
+    <input type="text" placeholder="Search here...">
   </div>
 
-  <!-- Sidebar Menu -->
-  <div id="sideDrawer" class="drawer">
-    <button class="closeBtn" onclick="closeDrawer()">✕</button>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Download</a></li>
-    </ul>
+  <div class="sidebar" id="sidebar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Download</a>
   </div>
 
-  <!-- Main Content -->
-  <main>
+  <main style="padding: 16px;">
     <h2>Welcome to Assault Decoder</h2>
     <p>This is your study resource hub.</p>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    function toggleSearch() {
+      const box = document.getElementById("searchBox");
+      box.style.display = box.style.display === "block" ? "none" : "block";
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("active");
+    }
+  </script>
 </body>
 </html>
