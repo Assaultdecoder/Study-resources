@@ -1,133 +1,124 @@
-<!DOCTYPE html><html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PW Batches - Assault Decoder</title>
+  <title>PW Batches</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
       background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #111;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      font-size: 1.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .search-container {
-      padding: 1rem;
-      text-align: center;
-    }
-    input[type="text"] {
-      width: 80%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    .batch-list {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 1rem;
-    }
-    .batch-item {
-      background-color: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 1rem;
-      margin: 0.5rem 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .batch-item a {
-      text-decoration: none;
-      background-color: #007bff;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-    .batch-item a:hover {
-      background-color: #0056b3;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #888;
-      padding: 2rem 0 1rem;
-    }
+      overflow-x: hidden;
+    }header {
+  background-color: #6200ea;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-container {
+  padding: 15px;
+  text-align: center;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 90%;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+.batch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  width: 100%;
+  max-width: 700px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.batch:hover {
+  transform: translateY(-2px);
+}
+
+.batch-name {
+  font-size: 1rem;
+  font-weight: 500;
+  flex: 1;
+}
+
+.batch-link {
+  text-decoration: none;
+  color: white;
+  background-color: #6200ea;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+  .batch {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .batch-link {
+    width: 100%;
+    text-align: center;
+  }
+}
+
   </style>
-</head>
-<body>
-  <header>PW Batches - Assault Decoder</header>  <div class="search-container">
-    <input type="text" id="searchInput" onkeyup="searchBatches()" placeholder="Search batches...">
-  </div>  <div class="batch-list" id="batchList">
-    <!-- Batches inserted here by JavaScript -->
-  </div>  <footer>
-    Developed by <strong>Anuj Yadav</strong>
-  </footer>  <script>
-    const batches = [
-      { name: "Arjuna JEE 2.0 2026", url: "https://t.me/+BgulYzYHHkwzOTE1" },
-      { name: "Arjuna JEE 2026", url: "https://t.me/+IfqOU96nhjgyNDI9" },
-      { name: "Arjuna JEE Hindi 2026", url: "https://t.me/Arjuna_Jee_Hindi2026" },
-      { name: "Arjuna JEE Weekend Express 2026", url: "https://t.me/ArjunaJEERevison2026" },
-      { name: "Arjuna NEET 2.0 2026", url: "https://t.me/+6xuDCBXMcDk4ZTc1" },
-      { name: "Arjuna NEET 2026", url: "https://t.me/+kk50bpYqwaM5YzU9" },
-      { name: "Arjuna NEET Hindi 2026", url: "https://t.me/ARJUNA_NEET_HINDI_2026_LEC" },
-      { name: "Arjuna NEET Weekend Express 2026", url: "https://t.me/arjunaneet_weekend_express_2026" },
-      { name: "BITSAT CRASH COURSE 2025", url: "https://t.me/+UHA7XIPbQoVmNjk1" },
-      { name: "CA INTER (G1+G2) – One Month Trial [Sept 25]", url: "https://t.me/CAInterCourses" },
-      { name: "CA INTER Udesh Regular Group-1 [May 2025]", url: "https://t.me/+ssJBn25maENiZjY1" },
-      { name: "CA INTER Udesh Regular Group-2 [May 2025]", url: "https://t.me/+1NPGbXaRWvMzNGE1" },
-      { name: "CA PARAG GUPTA SIR (ECONOMICS)", url: "https://t.me/+7_hn3yPF8Rg4NTA9" },
-      { name: "CA SAMPURNA FOUNDATION 2.0", url: "https://t.me/C_A_Foundation_lectures" },
-      { name: "EKAGRATA CA FOUNDATION [2025 & 26]", url: "https://t.me/+JkKKHr-VdqxmZWE1" },
-      { name: "EKAGRATA CA INTER FASTRACK Group-1", url: "https://t.me/Ekagrata_CA_inter" },
-      { name: "JK Shah CA Foundation FASTRACK BACTH [Sept 25]", url: "https://t.me/+93YO8nqlKkhkOWQ1" },
-      { name: "JK Shah CA Group-2", url: "https://t.me/+9rnFiBTyhNlmNjM9" },
-      { name: "Lakshya JEE 2026", url: "https://t.me/+dH1cX4n1F08xZWI1" },
-      { name: "Lakshya JEE 2.0 2026", url: "https://t.me/+JKZV3RhADCBhOGU1" },
-      { name: "Lakshya JEE Hindi 2026", url: "https://t.me/LAKSHYA_JEE_HINDI" },
-      { name: "Lakshya NEET 2026", url: "https://t.me/+1uJeVEZVpB9kOTM1" },
-      { name: "Lakshya NEET 2.0 2026", url: "https://t.me/+fhj4cM_Jf_pjZDQ1" },
-      { name: "Lakshya NEET Hindi 2026", url: "https://t.me/LAKSHYA_NEET_HINDI_2026" },
-      { name: "NDA (II) Shaurya 2025", url: "https://t.me/Nda_2_Shaurya2025" },
-      { name: "NDA (II) Shaurya 2.0 2025", url: "https://t.me/Shaurya_2_NDA_2_2025" },
-      { name: "NDA (II) Shaurya 3.0 2025", url: "https://t.me/Nda_2_Shaurya_3_2025" },
-      { name: "NEEV 2026", url: "https://t.me/pw_neev_2026_batch" },
-      // Continue all other batches similarly
-    ];
+</head><body>
+  <header>PW Batches</header>  <div class="search-container">
+    <input type="text" id="searchInput" onkeyup="searchBatch()" placeholder="Search for batches..." />
+  </div>  <div class="container" id="batchContainer">
+    <!-- Sample Batches Start -->
+    <div class="batch">
+      <div class="batch-name">Arjuna JEE 2026</div>
+      <a class="batch-link" href="https://t.me/+IfqOU96nhjgyNDI9" target="_blank">Click Here</a>
+    </div>
+    <div class="batch">
+      <div class="batch-name">Arjuna JEE 2.0 2026</div>
+      <a class="batch-link" href="https://t.me/+BgulYzYHHkwzOTE1" target="_blank">Click Here</a>
+    </div>
+    <div class="batch">
+      <div class="batch-name">Arjuna JEE Hindi 2026</div>
+      <a class="batch-link" href="https://t.me/Arjuna_Jee_Hindi2026" target="_blank">Click Here</a>
+    </div>
+    <!-- Add remaining batches here in same format -->
+  </div>  <script>
+    function searchBatch() {
+      let input = document.getElementById("searchInput");
+      let filter = input.value.toLowerCase();
+      let container = document.getElementById("batchContainer");
+      let batches = container.getElementsByClassName("batch");
 
-    // Sort alphabetically by name
-    batches.sort((a, b) => a.name.localeCompare(b.name));
-
-    const container = document.getElementById("batchList");
-    batches.forEach(batch => {
-      const div = document.createElement("div");
-      div.className = "batch-item";
-      div.innerHTML = `<span>${batch.name}</span><a href="${batch.url}" target="_blank">Click here</a>`;
-      container.appendChild(div);
-    });
-
-    function searchBatches() {
-      const input = document.getElementById("searchInput");
-      const filter = input.value.toLowerCase();
-      const items = document.querySelectorAll(".batch-item");
-      items.forEach(item => {
-        const text = item.textContent.toLowerCase();
-        item.style.display = text.includes(filter) ? "flex" : "none";
-      });
+      for (let i = 0; i < batches.length; i++) {
+        let name = batches[i].getElementsByClassName("batch-name")[0];
+        if (name.innerHTML.toLowerCase().indexOf(filter) > -1) {
+          batches[i].style.display = "flex";
+        } else {
+          batches[i].style.display = "none";
+        }
+      }
     }
-  </script></body>
-</html>
+  </script></body></html>
