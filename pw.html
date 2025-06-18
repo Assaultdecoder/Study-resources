@@ -1,124 +1,160 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PW Batches</title>
+  <title>PW Batches - Assault Decoder</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f9f9f9;
+      color: #333;
       overflow-x: hidden;
-    }header {
-  background-color: #6200ea;
-  color: white;
-  padding: 15px;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.search-container {
-  padding: 15px;
-  text-align: center;
-}
-
-input[type="text"] {
-  padding: 10px;
-  width: 90%;
-  max-width: 500px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  gap: 10px;
-}
-
-.batch {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  width: 100%;
-  max-width: 700px;
-  padding: 15px 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-}
-
-.batch:hover {
-  transform: translateY(-2px);
-}
-
-.batch-name {
-  font-size: 1rem;
-  font-weight: 500;
-  flex: 1;
-}
-
-.batch-link {
-  text-decoration: none;
-  color: white;
-  background-color: #6200ea;
-  padding: 8px 15px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-@media screen and (max-width: 500px) {
-  .batch {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .batch-link {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-  </style>
-</head><body>
-  <header>PW Batches</header>  <div class="search-container">
-    <input type="text" id="searchInput" onkeyup="searchBatch()" placeholder="Search for batches..." />
-  </div>  <div class="container" id="batchContainer">
-    <!-- Sample Batches Start -->
-    <div class="batch">
-      <div class="batch-name">Arjuna JEE 2026</div>
-      <a class="batch-link" href="https://t.me/+IfqOU96nhjgyNDI9" target="_blank">Click Here</a>
-    </div>
-    <div class="batch">
-      <div class="batch-name">Arjuna JEE 2.0 2026</div>
-      <a class="batch-link" href="https://t.me/+BgulYzYHHkwzOTE1" target="_blank">Click Here</a>
-    </div>
-    <div class="batch">
-      <div class="batch-name">Arjuna JEE Hindi 2026</div>
-      <a class="batch-link" href="https://t.me/Arjuna_Jee_Hindi2026" target="_blank">Click Here</a>
-    </div>
-    <!-- Add remaining batches here in same format -->
-  </div>  <script>
-    function searchBatch() {
-      let input = document.getElementById("searchInput");
-      let filter = input.value.toLowerCase();
-      let container = document.getElementById("batchContainer");
-      let batches = container.getElementsByClassName("batch");
-
-      for (let i = 0; i < batches.length; i++) {
-        let name = batches[i].getElementsByClassName("batch-name")[0];
-        if (name.innerHTML.toLowerCase().indexOf(filter) > -1) {
-          batches[i].style.display = "flex";
-        } else {
-          batches[i].style.display = "none";
-        }
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .back-btn {
+      font-size: 20px;
+      margin-right: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #333;
+    }
+    .logo-title {
+      font-weight: 700;
+      font-size: 22px;
+    }
+    .container {
+      padding: 20px;
+    }
+    .search-bar {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .batch {
+      background-color: #fff;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .batch-name {
+      font-weight: 600;
+      font-size: 16px;
+      flex: 1 1 60%;
+    }
+    .join-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      flex: 1 1 35%;
+      text-align: center;
+    }
+    @media (max-width: 500px) {
+      .batch {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .join-btn {
+        width: 100%;
+        margin-top: 10px;
       }
     }
-  </script></body></html>
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a class="back-btn" href="index.html">←</a>
+    <div class="logo-title">Assault Decoder</div>
+  </div>
+
+  <div class="container">
+    <input type="text" id="searchInput" class="search-bar" placeholder="Search batches..." onkeyup="filterBatches()">
+    <div class="section-title">PW Batches</div>
+
+    <div id="batchList">
+      <!-- Batches will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <script>
+    const batches = [
+      { name: 'Arjuna JEE Weekend Express 2026', link: 'https://t.me/ArjunaJEERevison2026' },
+      { name: 'Arjuna JEE 2026', link: 'https://t.me/+IfqOU96nhjgyNDI9' },
+      { name: 'Arjuna JEE 2.0 2026', link: 'https://t.me/+BgulYzYHHkwzOTE1' },
+      { name: 'Arjuna JEE Hindi 2026', link: 'https://t.me/Arjuna_Jee_Hindi2026' },
+      { name: 'Arjuna NEET Weekend Express 2026', link: 'https://t.me/arjunaneet_weekend_express_2026' },
+      { name: 'Arjuna NEET 2026', link: 'https://t.me/+kk50bpYqwaM5YzU9' },
+      { name: 'Arjuna NEET 2.0 2026', link: 'https://t.me/+6xuDCBXMcDk4ZTc1' },
+      { name: 'Arjuna NEET Hindi 2026', link: 'https://t.me/ARJUNA_NEET_HINDI_2026_LEC' },
+      { name: 'Lakshya JEE 2026', link: 'https://t.me/+dH1cX4n1F08xZWI1' },
+      { name: 'Lakshya JEE 2.0 2026', link: 'https://t.me/+JKZV3RhADCBhOGU1' },
+      { name: 'Lakshya JEE Hindi 2026', link: 'https://t.me/LAKSHYA_JEE_HINDI' },
+      { name: 'Lakshya NEET 2026', link: 'https://t.me/+1uJeVEZVpB9kOTM1' },
+      { name: 'Lakshya NEET 2.0 2026', link: 'https://t.me/+fhj4cM_Jf_pjZDQ1' },
+      { name: 'Lakshya NEET Hindi 2026', link: 'https://t.me/LAKSHYA_NEET_HINDI_2026' },
+      { name: 'Yakeen 1.0 NEET 2026', link: 'https://t.me/+UzptyjYTjHdjYjU1' },
+      { name: 'Yakeen 2.0 Legend 2026', link: 'https://t.me/PW_Yakeen_Legend_2026' },
+      { name: 'Yakeen 2.0 Alpha 2026', link: 'https://t.me/PW_Yakeen_Alpha_2026' },
+      { name: 'Yakeen NEET Hindi 2026', link: 'https://t.me/YAKEEN_NEET_HINDI_2026' },
+      { name: 'Prayas 1.0 JEE 2026', link: 'https://t.me/+hE3JksYoHrM1ZjQ1' },
+      { name: 'Prayas 2.0 JEE 2026', link: 'https://t.me/+o1sV8ZxMGlVjMTE1' },
+      { name: 'Prayas JEE Hindi 2026', link: 'https://t.me/+MDAXX6FJ2KI1ZWJl' },
+      { name: 'VARUN JEE ADVANCE 2025', link: 'https://t.me/VARUN_JEE_ADVANCE_BATCH_2025' },
+      { name: 'BITSAT CRASH COURSE 2025', link: 'https://t.me/+UHA7XIPbQoVmNjk1' },
+      { name: 'LAKSHYA MHTCET 2026', link: 'https://t.me/Lakshya_Mhtcet_2026_pw' },
+      // Add rest of the batch items as needed...
+    ];
+
+    function renderBatches(filter = '') {
+      const list = document.getElementById('batchList');
+      list.innerHTML = '';
+      batches
+        .filter(b => b.name.toLowerCase().includes(filter.toLowerCase()))
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .forEach(batch => {
+          const item = document.createElement('div');
+          item.className = 'batch';
+          item.innerHTML = `
+            <div class="batch-name">${batch.name}</div>
+            <a class="join-btn" href="${batch.link}" target="_blank">Click Here</a>
+          `;
+          list.appendChild(item);
+        });
+    }
+
+    function filterBatches() {
+      const input = document.getElementById('searchInput').value;
+      renderBatches(input);
+    }
+
+    renderBatches();
+  </script>
+</body>
+</html>
