@@ -1,0 +1,107 @@
+/* Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #101010;
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Nav Actions */
+.nav-actions button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Search Box */
+.search-box {
+  display: none;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.search-box input {
+  padding: 8px;
+  width: 70%;
+  max-width: 300px;
+}
+
+.search-box button {
+  padding: 8px 12px;
+  margin-left: 5px;
+}
+
+/* Drawer */
+.drawer {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: #1f1f1f;
+  overflow-x: hidden;
+  transition: 0.4s;
+  padding-top: 60px;
+  color: white;
+}
+
+.drawer ul {
+  list-style: none;
+  padding: 0 20px;
+}
+
+.drawer ul li {
+  margin: 20px 0;
+}
+
+.drawer ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 24px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .title {
+    font-size: 18px;
+  }
+}
