@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,10 +7,15 @@
   <title>Assault Decoder</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #f8f9fa;
+      overflow-x: hidden;
     }
 
     .navbar {
@@ -93,8 +99,8 @@
 
     .btn-container {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
       gap: 20px;
       margin-top: 40px;
     }
@@ -110,6 +116,8 @@
       box-shadow: 0 5px #0056b3;
       transition: 0.2s;
       text-decoration: none;
+      width: 200px;
+      text-align: center;
     }
 
     .btn-3d:hover {
@@ -123,10 +131,14 @@
 
     footer {
       text-align: center;
-      font-size: 12px;
+      font-size: 13px;
       color: #aaa;
       margin-top: 80px;
       padding-bottom: 20px;
+    }
+
+    footer strong {
+      color: #777;
     }
   </style>
 </head>
@@ -159,21 +171,18 @@
     </div>
   </div>
 
-  <footer>Developed by Anuj Yadav</footer>
+  <footer>
+    Developed by <strong>Anuj Yadav</strong>
+  </footer>
 
   <script>
     function toggleDrawer() {
       var drawer = document.getElementById("drawer");
-      if (drawer.style.left === "0px") {
-        drawer.style.left = "-250px";
-      } else {
-        drawer.style.left = "0px";
-      }
+      drawer.style.left = drawer.style.left === "0px" ? "-250px" : "0px";
     }
 
-    // Auto close drawer when any link is clicked
-    const drawerLinks = document.querySelectorAll('.drawer a');
-    drawerLinks.forEach(link => {
+    // Close drawer on link click
+    document.querySelectorAll('.drawer a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById("drawer").style.left = "-250px";
       });
